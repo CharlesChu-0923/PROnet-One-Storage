@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROnet Storage · Temporary Portal</title>
+  <meta name="description" content="PROnet Storage temporary portal powered by Microsoft OneDrive.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo/pronet-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body{overflow:hidden;}
+    main.storage-snap{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;}
+    .storage-shell{width:min(980px,calc(100vw - 64px));margin:0 auto;}
+    .storage-section{min-height:100svh;display:flex;align-items:center;padding:132px 0 104px;scroll-snap-align:start;scroll-snap-stop:always;position:relative;}
+    .storage-hero{max-width:900px;}
+    .badge-large{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(103,232,249,.22);border-radius:999px;padding:12px 16px;background:rgba(103,232,249,.06);font:800 12px/1 JetBrains Mono,monospace;letter-spacing:.13em;text-transform:uppercase;color:#bdeaff;margin:0 0 36px;}
+    .badge-large:before{content:"";width:8px;height:8px;border-radius:999px;background:var(--orange);box-shadow:0 0 18px rgba(255,138,61,.9);}
+    .storage-title{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(52px,8.6vw,112px);line-height:.92;letter-spacing:-.055em;margin:0 0 24px;white-space:nowrap;}
+    .storage-title span{background:linear-gradient(90deg,var(--orange),var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .storage-lead{font-size:clamp(19px,2.25vw,27px);line-height:1.72;color:#dbe7ff;max-width:780px;margin:0;}
+    .storage-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:58px;}
+    .storage-button{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border-radius:999px;font-weight:900;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.075);}
+    .storage-button.primary{border:0;background:linear-gradient(90deg,var(--orange),var(--blue));box-shadow:0 18px 50px rgba(47,125,255,.22);}
+    .storage-note{margin-top:28px;color:var(--muted);font-size:15px;line-height:1.8;max-width:640px;}
+    .detail-block{display:grid;gap:42px;max-width:900px;}
+    .detail-title{font-family:"Space Grotesk";font-size:clamp(42px,6vw,78px);line-height:1;letter-spacing:-.05em;margin:0;}
+    .detail-copy{font-size:20px;line-height:1.85;color:#c8d6ee;max-width:780px;margin:0;}
+    .info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:4px;max-width:840px;}
+    .info-card{border:1px solid rgba(255,255,255,.11);border-radius:28px;background:rgba(255,255,255,.045);padding:26px;min-height:124px;}
+    .info-card span{display:block;font:800 12px/1 JetBrains Mono,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8fa7cc;margin-bottom:16px;}
+    .info-card strong{font-size:20px;color:#eef7ff;}
+    .legal-list{display:grid;gap:18px;max-width:800px;}
+    .legal-item{border-left:1px solid rgba(103,232,249,.28);padding-left:24px;color:#c8d6ee;font-size:18px;line-height:1.8;}
+    .legal-item strong{display:block;color:#eef7ff;margin-bottom:4px;}
+    .footer-card.storage-footer{align-items:flex-start;}
+    @media(max-width:760px){body{overflow:auto;}main.storage-snap{height:auto;overflow:visible;scroll-snap-type:none;}.storage-shell{width:min(100%,calc(100vw - 40px));}.storage-section{min-height:auto;padding:104px 0 76px;align-items:flex-start;}.storage-title{white-space:normal;font-size:clamp(48px,15vw,82px);}.info-grid{grid-template-columns:1fr;}.footer-card.storage-footer{padding:36px;}}
+  </style>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas><div class="bg-grid" aria-hidden="true"></div><div class="orbs" aria-hidden="true"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div></div>
+<div class="page">
+<header class="header">
+  <nav class="nav">
+    <a class="brand-full" href="https://pronetone.com" aria-label="PROnet One home"><img src="assets/logo/pronet-logo-wordmark.svg" onerror="this.onerror=null;this.src='assets/logo/pronet-logo-wordmark.png'" alt="PROnet"></a>
+    <div class="nav-links">
+      <a href="https://pronetone.com">Main Site</a>
+      <a href="https://pronetone.com/services.html">Services</a>
+      <a class="nav-cta" href="https://pronetone.com/storage.html">Storage Details</a>
+    </div>
+  </nav>
+</header>
+<main class="storage-snap">
+<section class="storage-section">
+  <div class="storage-shell">
+    <div class="storage-hero">
+      <h1 class="storage-title">PROnet <span>Storage</span></h1>
+      <div class="badge-large">Temporary service online</div>
+      <p class="storage-lead">A temporary file access portal for PROnet. The current backend uses a password-protected Microsoft OneDrive location while the official PROnet-managed storage infrastructure is being prepared.</p>
+      <div class="storage-actions">
+        <a class="storage-button primary" href="https://ytccgpyd-my.sharepoint.com/:f:/g/personal/charleschu923_ytccgpyd_onmicrosoft_com/IgAKHzuTIQoaTJpSiGrV4oesAdjAlERnjcOs3k74XbWkGts" target="_blank" rel="noopener">Open Storage</a>
+        <a class="storage-button" href="https://pronetone.com/services.html">Back to Services</a>
+      </div>
+      <p class="storage-note">After continuing, you will leave this portal and open the temporary Microsoft OneDrive storage location. A password is required to access the files.</p>
+    </div>
+  </div>
+</section>
+<section class="storage-section">
+  <div class="storage-shell">
+    <div class="detail-block">
+      <div>
+        <div class="eyebrow">Temporary phase</div>
+        <h2 class="detail-title">One public entry point. Replaceable backend.</h2>
+      </div>
+      <p class="detail-copy">PROnet Storage is published early through a simple portal, while the backend remains replaceable. The public endpoint stays at storage.pronetone.com, even when the service later moves from OneDrive to PROnet-managed infrastructure.</p>
+      <div class="info-grid">
+        <div class="info-card"><span>Domain</span><strong>storage.pronetone.com</strong></div>
+        <div class="info-card"><span>Status</span><strong>Temporary Online</strong></div>
+        <div class="info-card"><span>Backend</span><strong>Microsoft OneDrive</strong></div>
+        <div class="info-card"><span>Access</span><strong>Password Required</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="storage-section">
+  <div class="storage-shell">
+    <div class="footer-card storage-footer">
+      <div>
+        <img class="footer-logo" src="assets/logo/pronet-logo-wordmark.svg" onerror="this.onerror=null;this.src='assets/logo/pronet-logo-wordmark.png'" alt="PROnet">
+        <p>PROnet Storage · Temporary Online</p>
+        <div class="legal-list">
+          <div class="legal-item"><strong>Temporary backend</strong>PROnet Storage currently redirects to a password-protected Microsoft OneDrive location.</div>
+          <div class="legal-item"><strong>No official Microsoft partnership</strong>Microsoft OneDrive is used as a temporary backend service. PROnet is not affiliated with, endorsed by, or officially partnered with Microsoft.</div>
+          <div class="legal-item"><strong>Future infrastructure</strong>This temporary solution will be replaced by PROnet-managed storage infrastructure after the new server environment is deployed.</div>
+        </div>
+      </div>
+      <div class="footer-mark">© 2026 PROnet One<br>Storage Portal v1.1<br>Temporary backend powered by Microsoft OneDrive.</div>
+    </div>
+  </div>
+</section>
+</main></div>
+<script src="assets/js/background.js"></script>
+</body>
+</html>
